@@ -1,0 +1,47 @@
+### 강민수 풀이 ###
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        vector<int> v(60001);
+        for(int i=0; i<nums.size(); i++){
+            int index = nums[i];
+            v[index+30000] += 1;
+        }
+        for(int i=0;i<60001; i++){
+            if (v[i]==1) {
+                return i-30000;
+            }
+        }
+    return 0;
+    }
+};
+
+# 검색한 솔루션
+
+>> sort를 써서 앞뒤로 비교하는 솔루션은 sort STL의 기본적인 시간복잡도인 O(NlogN)이 발생했다.
+>> auto를 활용한다는 점에서 코드가 훨씬 간결했고, unordered_map STL을 사용하므로써 공간복잡도를 줄였다
+>> but 여전히 공간복잡도는 O(N)
+
+    int singleNumber(vector<int>& nums) { 
+       unordered_map<int,int> a;
+	   for(auto x: nums)
+		   a[x]++;
+	   for(auto z:a)
+		   if(z.second==1)
+			   return z.first;
+	   return -1;
+    }
+    
+>> 여기서 참신한 풀이가 바로 bitwise operator을 활용한다는 점이다. 
+>>     A^A^.....^A (A는 짝수 번 나타남) = 0
+       A^A^...^A (A는 홀수 번 나타남) = A
+       이 특성을 활용해서 아주 간단하게 문제를 풀이하였다.
+>> 시간 복잡도 O(N) 공간복잡도 O(1)
+
+    int singleNumber(vector<int>& nums) { 
+       int ans=0;
+	   for(auto x:nums)
+	   ans^=x;
+	   return ans;
+    }
