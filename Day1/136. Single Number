@@ -45,3 +45,38 @@ public:
 	   ans^=x;
 	   return ans;
     }
+    
+    
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums)
+    {
+        int k,z[60001]={0,};
+        for(int i=0; i<nums.size(); i++)
+        {
+            z[nums[i]+30000]++;
+        }
+        for(int i=0; i<60001; i++)
+        {
+            if(z[i]==1)
+            {
+                k=i;
+                break;
+            }
+        }
+        return k-30000;
+    }
+};
+
+# 솔루션
+1.(내방법) 배열에서 각 원소의 크기를 인덱스로 지정하여 다른 배열에 저장
+
+2.배열을 정렬하면 크기가 같은 원소 2개씩 앞뒤로 짝지어 지는것을 이용
+
+3.비트연산자를 이용, ^(XOR)(둘이 다른경우에만1)
+A^A=0
+A^B^A=B
+이를 이용하면 같은 숫자가 두번 만나면 0이되며 하나만 나온 숫자만 남게됨
+
