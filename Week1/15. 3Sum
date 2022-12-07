@@ -1,0 +1,83 @@
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums)
+    {
+        sort(nums.begin(),nums.end());
+        vector<vector<int>> v;
+        int q=0;
+        for(int i=0; i<nums.size(); i++)
+        {
+            if(nums[i]==0)
+                q++;
+        }
+        if(q>=3)
+        {
+            vector<int> vv={0,0,0};
+            v.push_back(vv);
+        }
+        for(int i=0; i<nums.size(); i++)
+        {
+            if(nums[i]==0&&q>1)
+                nums.erase(nums.begin()+i);
+        }
+        int x=0,y=nums.size()-1;
+        while(nums[x]<0)
+        {
+            y=nums.size()-1;
+            while(nums[y]>0)
+            {
+                if(nums[y]==nums[y-1]&&nums[x]+nums[y]==0)
+                {
+                    y--;
+                    continue;
+                }
+                int c=nums[x]+nums[y];
+                if(c>0)
+                {
+                    int xx=x+1;
+                    while(nums[xx]<0)
+                    {
+                        if(nums[xx]+c==0)
+                        {
+                            vector<int> vv={nums[x],nums[y],nums[xx]};
+                            v.push_back(vv);
+                        }
+                        xx++;
+                        break;
+                    }
+                }
+                else if(c<0)
+                {
+                    int yy=y-1;
+                    while(nums[yy]>0)
+                    {
+                        if(nums[yy]+c==0)
+                        {
+                            vector<int> vv={nums[x],nums[y],nums[yy]};
+                            v.push_back(vv);                            
+                        }
+                        yy--;
+                        break;
+                    }
+                }
+                else if(c==0)
+                {
+                    int xx=x+1;
+                    while(nums[xx]<=0)
+                    {
+                        if(nums[xx]==0)
+                        {
+                            vector<int> vv={nums[x],nums[y],nums[xx]};
+                            v.push_back(vv);  
+                        }
+                        xx++;
+                        break;
+                    }
+                }
+                y--;
+            }
+            x++;
+        }
+        return v;
+    }
+};
