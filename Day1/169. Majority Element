@@ -1,0 +1,25 @@
+### 이원호 ###
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums)
+    {
+        sort(nums.begin(),nums.end());
+        int z=1,h=1,hh=1;
+        for(int i=1; i<nums.size(); i++)
+        {
+            if(nums[i]==nums[i-1])
+            {
+                z++;
+                if(z>hh)
+                {
+                    h=nums[i];
+                    hh=z;
+                }
+            }
+            else
+                z=1;
+        }
+        return h;
+    }
+};
