@@ -24,3 +24,36 @@ If the target > nums[mid], then low = mid + 1 = high. The target position can be
 but if the target < nums[mid], then high = mid - 1 = low - 1. The target position must be low, not the high.
 출처 : https://leetcode.com/problems/search-insert-position/solutions/1596479/c-3-solutions-well-explained-with-example-and-concise-solution
       /?envType=study-plan&id=algorithm-i&orderBy=most_votes
+
+
+### 이원호 풀이 ##
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target)
+    {
+        int s=0,e=nums.size()-1;
+        while(s<=e)
+        {
+            int mid=(s+e)/2;
+            if(nums[mid]==target)
+            {
+                return mid;
+            }
+            else if(nums[mid]>target)
+            {
+                e=mid-1;
+            }
+            else
+            {
+                s=mid+1;
+            }
+        }
+        if(nums.size()==1&&nums[0]==target)
+            return 0;
+        return s;
+    }
+};
+
+704. Binary Search 와 거의 같으나 704. Binary Search에서 값이 없어서-1을 반환할때 이 문제에서는 인덱스를 반환해줌.
+그 부분만 바꿔주면됨 -1->s
