@@ -10,3 +10,7 @@ public:
         return false;
     }
 };
+
+Tp : O(N) / Sp : O(N)
+
+// set 활용 풀이도 있음 STL 정리하기
