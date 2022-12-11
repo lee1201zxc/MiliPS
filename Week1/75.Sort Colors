@@ -72,4 +72,31 @@ public:
 
     Mid <= High is our exit case
     ==============================================
+    
+    
+    ### 이원호 풀이 ###
+    
+    class Solution {
+public:
+    void sortColors(vector<int>& nums)
+    {
+        int a[3]={0,};
+        for(int i=0; i<nums.size(); i++)
+        {
+            a[nums[i]]++;
+        }
+        int x=0;
+        for(int i=0; i<3; i++)
+        {
+            while(a[i]!=0)
+            {
+                nums[x]=i;
+                a[i]--;
+                x++;
+            }
+        }
+    }
+};
+
+계수정렬을 이용, 하지만 for문 2개씀
  
