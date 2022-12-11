@@ -1,0 +1,17 @@
+# 강
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int result[3] = {0, 0, 0};
+        for(auto x:nums){
+            result[x]++;
+        }
+        int count = 0;
+        for(int i = 0; i< 3; i++){
+            while (result[i]--){
+                nums[count++] = i;
+            }
+        }
+    }
+};
