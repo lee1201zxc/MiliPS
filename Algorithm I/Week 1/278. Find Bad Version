@@ -28,7 +28,7 @@ public:
         int s=1,e=n;
         while(s<=e)
         {
-            int mid=s+(e-s)/2;
+            int mid=s+(e-s)/2;                                              //이하동문 
             if(isBadVersion(mid)==true&&isBadVersion(mid-1)==false)
                 return mid;
             if(isBadVersion(mid))
