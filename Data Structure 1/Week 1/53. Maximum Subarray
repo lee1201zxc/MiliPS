@@ -37,3 +37,24 @@ public:
 
 
 // 분할정복??
+
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums)
+    {
+        int z[nums.size()],h=-10000;
+        h=z[0]=nums[0];
+        for(int i=1; i<nums.size(); i++)
+        {
+            z[i]=nums[i]<z[i-1]+nums[i]?z[i-1]+nums[i]:nums[i];
+            if(z[i]>h)
+                h=z[i];
+        }
+        return h;
+    }
+};
+-> 카데인 알고리즘 (최장증가부분수열 구하는 LIS알고리즘과 비슷)
