@@ -14,3 +14,38 @@ public:
 Tp : O(N) / Sp : O(N)
 
 // set 활용 풀이도 있음 STL 정리하기
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums)
+    {
+        sort(nums.begin(),nums.end());
+        for(int i=1; i<nums.size(); i++)
+        {
+            if(nums[i]==nums[i-1])
+                return true;
+        }
+        return false;
+    }
+};
+
+정렬후 똑같은 원소가 나란히 나오면 return true
+
+*unordered map, unordered set STL을 이용한 풀이도 존재
+->
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        if (nums.empty()) { return false; }
+        unordered_map<int,int> mp;
+        for (int i : nums) {
+            if (++mp[i] > 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
