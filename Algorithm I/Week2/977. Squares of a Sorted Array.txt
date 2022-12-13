@@ -14,3 +14,39 @@ Tp : O(nlogn) / Sp : O(1)
 
 Follow up: Squaring each element and sorting the new array is very trivial, could you find an O(n) solution using a different approach?
 // 시간복잡도를 O(n)으로 유지할 수 없는가?
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int min_i = 0;
+        int min_val = 10001;
+        int n = nums.size();
+        for(int i = 0; i < n; i++){
+            int t = nums[i];
+            if (abs(nums[i]) < min_val) {
+                min_i = i;
+                min_val = abs(nums[i]);
+            }
+        }
+        vector<int> v = {min_val*min_val};
+        int fp = min_i - 1, sp = min_i + 1;
+        while (1) {
+            if (fp < 0) {
+                while(sp < n) v.push_back(pow(nums[sp++],2));
+                break;
+            }
+            else if (sp >= n){
+                while(fp >= 0) v.push_back(pow(nums[fp--],2));
+                break;
+            } 
+            if (pow(nums[fp],2) <= pow(nums[sp],2)) {
+                v.push_back(pow(nums[fp--],2));
+            }
+            else {
+                v.push_back(pow(nums[sp++],2));
+            }
+        }
+        return v;
+    }
+};
+
+// 코드가 복잡하긴 하지만 Tp : O(n), Sp : O(n)
