@@ -1,0 +1,16 @@
+### 강민수
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        for(auto& x:nums) {
+            x *= x;
+        }
+        sort(nums.begin(),nums.end());
+        return nums;
+    }
+};
+
+Tp : O(nlogn) / Sp : O(1)
+
+Follow up: Squaring each element and sorting the new array is very trivial, could you find an O(n) solution using a different approach?
+// 시간복잡도를 O(n)으로 유지할 수 없는가?
