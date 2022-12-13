@@ -12,3 +12,23 @@ public:
 };
 
 Tp : O(n) / Sp : O(n)
+
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k)
+    {
+        vector<int> v(nums.size());
+        for(int i=0; i<nums.size(); i++)
+        {
+            v[(i+k)%nums.size()]=nums[i];
+        }
+        nums=v;
+    }
+};
+
+-> 벡터 하나 만들어서 거기에 넣어줌. 공간 복잡도 O(n)
+
