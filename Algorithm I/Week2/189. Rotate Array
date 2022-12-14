@@ -13,7 +13,37 @@ public:
 
 Tp : O(n) / Sp : O(n)
 
+// Sp : O(1) 인 풀이가 있음
 
+Let the array be - 123456789 and k = 4
+
+Step 1 - 12345 6789 ---> 54321 6789
+
+Step 2 - 54321 6789 ---> 54321 9876
+
+Step 3 - 543219876 ---> 678912345
+
+    class Solution 
+    {
+    public:
+        void rotate(int nums[], int n, int k) 
+        {
+            k = k%n;
+    
+            // Reverse the first n - k numbers.
+            // Index i (0 <= i < n - k) becomes n - k - i.
+            reverse(nums, nums + n - k);
+            
+            // Reverse tha last k numbers.
+            // Index n - k + i (0 <= i < k) becomes n - i.
+            reverse(nums + n - k, nums + n);
+            
+            // Reverse all the numbers.
+            // Index i (0 <= i < n - k) becomes n - (n - k - i) = i + k.
+            // Index n - k + i (0 <= i < k) becomes n - (n - i) = i.
+            reverse(nums, nums + n);
+        }
+    };
 
 ### 이원호 풀이 ###
 
