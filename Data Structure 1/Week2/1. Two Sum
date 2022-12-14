@@ -12,3 +12,30 @@ public:
     return {-1};
     }
 };
+
+
+
+### 이원호 풀이 ###
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target)
+    {
+        vector<int> a(2);
+        for(int i=0; i<nums.size()-1; i++)
+        {
+            for(int z=i+1; z<nums.size(); z++)
+            {
+                if(nums[i]+nums[z]==target)
+                {
+                    a[0]=i;
+                    a[1]=z;
+                }
+            }
+        }
+        return a;
+    }
+};
+
+시간 복잡도 O(n^2) ->브루트 포스 알고리즘(완전탐색)
