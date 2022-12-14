@@ -4,8 +4,8 @@
 + 백준 알고리즘
 
 + LeetCode
-  + 1.Algorithm
-  + 2.DataStructure
+  + Algorithm
+  + DataStructure
 
 
 
