@@ -7,7 +7,7 @@
   + DataStructure
 
 
-***
+멤버 ***
 
 ##### 육군 일병 강민수
 <https://github.com/Kongms002>
