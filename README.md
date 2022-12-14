@@ -10,4 +10,7 @@
 ***
 
 ##### 육군 일병 강민수
+<https://github.com/Kongms002>
+
 ##### 공군 일병 이원호
+<https://github.com/lee1201zxc>
