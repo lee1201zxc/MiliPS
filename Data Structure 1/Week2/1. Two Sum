@@ -15,6 +15,45 @@ public:
 
 Tp : O(n^2), Sp: O(1)
 
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<pair<int,int>> v;
+        int n = nums.size();
+        int s = 0, e = n-1;
+        for (int i = 0 ; i < n; i++){
+            v.push_back(make_pair(nums[i], i));
+        }
+        sort(v.begin(),v.end());                                       //Tp : O(nlogn)
+
+        while(1){
+            int sum = v[s].first + v[e].first;
+            if (sum < target) s++;
+            else if (sum > target) e--;
+            else return {v[s].second, v[e].second};
+        }                                                               //Tp : O(2n)
+    return {-1};
+    }
+};
+
+// Tp : O(nlogn), Sp: O(n)
+
+// 해시테이블을 이용한 풀이 
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> hashmap;
+        for(int i = 0 ; i < nums.size(); i++){
+            int numberToFind = target - nums[i];
+            if (hashmap.count(numberToFind)) return {i, hashmap[numberToFind]};
+            hashmap[nums[i]] = i;
+        }
+
+        return {-1};
+    }
+};
+
+// Tp : O(n), Sp : O(n)
 ### 이원호 풀이 ###
 
 
