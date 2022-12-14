@@ -1,0 +1,14 @@
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
+    {
+        for(int i=m; i<nums2.size()+m; i++)
+            nums1[i]=nums2[i-m];
+        sort(nums1.begin(),nums1.end());
+    }
+};
+
+그냥 nums1의 빈 공간에 nusm2 값 넣고 정렬
+시간 복잡도O(nlogn)
