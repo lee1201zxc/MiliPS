@@ -1,8 +1,9 @@
 # **MiliPS**
 ## 군대에서 공부하자
 
++ 백준 알고리즘
 
-+ 1.LeetCode
++ LeetCode
   + 1.Algorithm
   + 2.DataStructure
 
