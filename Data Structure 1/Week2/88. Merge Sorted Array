@@ -12,3 +12,23 @@ public:
 
 그냥 nums1의 빈 공간에 nusm2 값 넣고 정렬
 시간 복잡도O(nlogn)
+
+### 강민수 풀이
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> v;
+        int x = 0, y = 0;
+        while (x < m || y < n) {
+            if (x >= m && y < n) v.push_back(nums2[y++]);
+            if (y >= n && x < m) v.push_back(nums1[x++]);
+            if (x >= m || y >= n) continue;
+            if (nums1[x] < nums2[y]) v.push_back(nums1[x++]);
+            else v.push_back(nums2[y++]);
+
+        }
+        nums1 = v;
+    }
+}
+
+Tp : O(n+m) / Sp:O(n+m)
