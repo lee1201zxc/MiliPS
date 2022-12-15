@@ -1,0 +1,16 @@
+### 강민수 풀이
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int n = numbers.size();
+        int s = 0, e = n-1;
+        while (s < e) {
+            int sum = numbers[s] + numbers[e];
+            if (sum < target) s++;
+            else if (sum > target) e--; 
+            else return {++s, ++e};
+        }
+        return {-1};
+    }
+};
+
