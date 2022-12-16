@@ -19,3 +19,25 @@ public:
 };
 
 Tp: O(n) / Sp: O(n)
+
+
+### 이원호 풀이 ###
+
+class Solution{
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
+        vector<int> v;
+        int a[1001]={0,};
+        for(auto x:nums1){
+            a[x]++;
+        }
+        for(auto x:nums2){
+            if(a[x]!=0){
+                v.push_back(x),a[x]--;
+            }
+        }
+        return v;
+    }
+};
+
+시간 : O(n), 공간 : O(n)
