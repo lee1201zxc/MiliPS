@@ -19,3 +19,25 @@ public:
         return result;
     }
 };
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c)
+    {
+        int m=mat.size(),n=mat[0].size();
+        vector<vector<int>> v(r,vector<int>(c,0));
+        if(mat.size()*mat[0].size()!=c*r)
+            return mat;
+        for(int i=0; i<r; i++)
+        {
+            for(int z=0; z<c; z++)
+            {
+                v[i][z]=mat[(i*c+z)/n][i*c+z-(i*c+z)/n*n];
+            }
+        }
+        return v;
+    }
+};
