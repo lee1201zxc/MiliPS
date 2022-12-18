@@ -8,7 +8,7 @@ public:
             reverse(ss.begin(),ss.end());
             answer += ss + " ";
         }
-        answer.resize(answer.size()-1);
+        answer.erase(answer.size()-1);
         return answer;
     }
 };
