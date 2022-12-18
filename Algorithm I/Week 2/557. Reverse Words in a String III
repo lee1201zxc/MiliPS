@@ -12,3 +12,27 @@ public:
         return answer;
     }
 };
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    string reverseWords(string s)
+    {
+        int d=0,e=0;
+        for(int i=0; i<s.size(); i++)
+        {
+            if(s[i]==' ')
+            {
+                e=i;
+                reverse(s.begin()+d,s.begin()+e);
+                d=e+1;
+            }
+        }
+        reverse(s.begin()+d,s.end());
+        return s;
+    }
+};
+
+공백 만나면 그전에있는 문자열 하나 바꿔주기 마지막에는 공백이 없으므로 코드 추가(33)
