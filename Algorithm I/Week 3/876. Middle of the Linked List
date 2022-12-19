@@ -27,27 +27,6 @@ public:
 };
 Tp : O(n) / Sp : O(n)
 
-// 더 좋은 풀이
-ListNode* middleNode(ListNode* head) {
-        ListNode *slow = head, *fast = head;
-        while (fast && fast->next)
-            slow = slow->next, fast = fast->next->next;
-        return slow;
-    }
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
- -> 좋아요!
-
-
 
 ### 이원호 풀이 ###
 
@@ -76,4 +55,28 @@ public:
     }
 };
 -> 한번 돌아서 중간 찾기
+
+
+
+
+// 더 좋은 풀이
+ListNode* middleNode(ListNode* head) {
+        ListNode *slow = head, *fast = head;
+        while (fast && fast->next)
+            slow = slow->next, fast = fast->next->next;
+        return slow;
+    }
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+ -> 잘 써먹기 바랍니다.
+
 
