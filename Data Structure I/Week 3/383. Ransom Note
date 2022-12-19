@@ -16,3 +16,20 @@ public:
         return true;
     }
 };
+
+## 강민수
+
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char, int> map;
+        for (auto c:magazine){
+            map[c] += 1;
+        }
+        for (auto c:ransomNote){
+            if (map[c] == 0) return false;
+            map[c]--;
+        }
+        return true;
+    }
+};
