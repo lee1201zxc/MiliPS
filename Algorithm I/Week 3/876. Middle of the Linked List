@@ -34,3 +34,46 @@ ListNode* middleNode(ListNode* head) {
             slow = slow->next, fast = fast->next->next;
         return slow;
     }
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+ -> 좋아요!
+
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head)
+    {
+        int z=0;
+        ListNode* s=head;
+        while(s->next!=NULL)
+        {
+            s=s->next;
+            z++;
+        }
+        if(z%2==0)
+            z/=2;
+        else
+            z=z/2+1;
+        s=head;
+        for(int i=0; i<z; i++)
+        {
+            s=s->next;
+        }
+        cout<<z;
+        return s;
+    }
+};
+-> 한번 돌아서 중간 찾기
+
