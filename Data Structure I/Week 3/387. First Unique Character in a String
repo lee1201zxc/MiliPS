@@ -19,3 +19,18 @@ public:
 };
 
 처음에 반복문으로 각 문자가 몇번 나왔는지 찾은 후 그 다음 반복문으로 i번째 문자가 1번만 나왔다면 그 인덱스값 리턴, 없으면 -1 리턴.
+
+## 
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char, int> cnt;
+        for (int i=0;i<s.size();i++){
+            cnt[s[i]] += 1;
+        }
+        for (int i=0;i<s.size();i++){
+            if (cnt[s[i]] == 1) return i;
+        }
+        return -1;
+    }
+};
