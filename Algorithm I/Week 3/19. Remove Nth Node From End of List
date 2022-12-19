@@ -42,6 +42,50 @@ public:
 
 -> 리스트 길이 구하고 뺄노드 전과 후에 있는 노드를 연결해줌, 크기가 1,2일때와 가장 첫 번째 노드를 지울 때 예외처리 해줌.
 
+## 강민수 풀이
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode * cur = head;
+        ListNode * cnt = head;
+        ListNode * prev;
+        int total = 1;
+        while (cnt->next != NULL) {
+            total++;
+            prev = cnt;
+            cnt = cnt-> next;
+        }
+        int k = total + 1 - n;
+        if (k == 1) return head->next;
+        else if (k == total) {
+            prev->next = NULL;
+            return head;
+        } 
+        else {
+            while(cur != NULL && --k){
+                prev = cur;
+                cur = cur-> next;
+            }
+            prev->next = cur->next;
+            return head;
+        }
+    }
+};
+
+
+
+
 다른 풀이
 
 class Solution {
