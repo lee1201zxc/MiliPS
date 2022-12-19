@@ -40,4 +40,27 @@ public:
     }
 };
 
-리스트 길이 구하고 뺄노드 전과 후에 있는 노드를 연결해줌, 크기가 1,2일때와 가장 첫 번째 노드를 지울 때 예외처리 해줌.
+-> 리스트 길이 구하고 뺄노드 전과 후에 있는 노드를 연결해줌, 크기가 1,2일때와 가장 첫 번째 노드를 지울 때 예외처리 해줌.
+
+다른 풀이
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *dummy=new ListNode(-1);
+        dummy->next=head;
+        ListNode *ptr1=dummy;
+        ListNode *ptr2=head;
+        while(n>0){
+            ptr2=ptr2->next;
+            n--;
+        }
+        while(ptr2!=NULL){
+            ptr1=ptr1->next;
+            ptr2=ptr2->next;
+        }
+        ptr1->next=ptr1->next->next;
+        return dummy->next;
+    }
+};
+-> 투 포인터를 이용, ptr2-> head에서 n번째 떨어진 노드, ptr1과 ptr2을 동시에 이동시켜서 ptr2가 끝까지 도달하면 ptr1이 위치한 노드의 다음 노드는 지울 노드가 됨
