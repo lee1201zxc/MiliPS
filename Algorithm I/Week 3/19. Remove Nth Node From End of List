@@ -1,0 +1,43 @@
+### 이원호풀이 ###
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n)
+    {
+        ListNode* s=head;
+        int z=0;
+        while(s->next!=NULL)
+        {
+            z++;
+            s=s->next;
+        }
+        if(z==0)
+        {
+            return head->next;
+        }
+        else if(z==1)
+        {
+            if(n==1)
+            {
+                head->next=NULL;
+                return head;
+            }
+            else
+                return head->next;
+        }
+        else if(z+1==n)
+            return head->next;
+        s=head;
+        for(int i=0; i<z-n; i++)
+        {
+            s=s->next;
+        }
+        ListNode* ss=s;
+        ss=ss->next->next;
+        s->next=ss;
+        s=head;
+        return s;
+    }
+};
+
+리스트 길이 구하고 뺄노드 전과 후에 있는 노드를 연결해줌, 크기가 1,2일때와 가장 첫 번째 노드를 지울 때 예외처리 해줌.
