@@ -1,0 +1,21 @@
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    int firstUniqChar(string s)
+    {
+        int a[26]={0,};
+        for(int i=0; i<s.size(); i++)
+        {
+            a[s[i]-97]++;
+        }
+        for(int i=0; i<s.size(); i++)
+        {
+            if(a[s[i]-97]==1)
+                return i;
+        }
+        return -1;
+    }
+};
+
+처음에 반복문으로 각 문자가 몇번 나왔는지 찾은 후 그 다음 반복문으로 i번째 문자가 1번만 나왔다면 그 인덱스값 리턴, 없으면 -1 리턴.
