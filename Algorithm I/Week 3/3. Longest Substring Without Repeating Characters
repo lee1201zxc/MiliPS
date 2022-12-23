@@ -1,0 +1,26 @@
+## 강민수 풀이
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if (s.size() == 0) return 0;
+        unordered_map<char, int> map;
+        int result = 0;
+        int i = 0 , j = 0;
+        while(j<s.size()){
+            if(map[s[j]] > 0) {
+                map[s[i]]--;
+                i++;
+            } 
+            else {
+                map[s[j]]++;
+                result = max(result, j-i+1);
+                j++;
+            }
+
+        }
+        return result;
+    }
+};
+
+Tp : O(n) / Sp: O(n)
