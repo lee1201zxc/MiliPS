@@ -1,0 +1,30 @@
+### 이원호 풀이 ###
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head)
+    {
+        if(!head||!head->next)
+            return head;
+        ListNode * a=head;
+        ListNode * b=head;
+        ListNode * c=NULL;
+        while(b)
+        {
+            b=b->next;
+            a->next=c;
+            c=a;
+            a=b;
+        }
+        return c;
+    }
+};
