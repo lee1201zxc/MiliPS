@@ -27,4 +27,55 @@ public:
     }
 };
 
-재귀적
+재귀적인 방법, 전역변수 이용
+
+다른 풀이
+
+class Solution {
+public:
+   void in(TreeNode* root, vector<int> &v){
+        if(root==NULL){
+            return;
+        }
+        else{
+            
+            
+            
+            v.push_back(root->val);
+            in(root->left,v);
+            in(root->right,v);
+        }
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int>v;
+        in(root,v);
+        return v;
+    }
+};
+
+원리는 같지만 추가함수 + 참조자 이용
+
+**
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector <int> pre;
+        if(root == nullptr)return pre;
+
+        stack <TreeNode *> st;
+        st.push(root);
+
+        while(!st.empty()) {
+            root = st.top();
+            st.pop();
+
+            pre.push_back(root->val);
+
+            if(root->right) st.push(root->right);
+            if(root->left) st.push(root->left);
+        }
+        return pre;
+    }
+};
+
+스택을 이용한 풀이
