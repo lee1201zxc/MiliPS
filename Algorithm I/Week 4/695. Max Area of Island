@@ -51,3 +51,53 @@ int maxAreaOfIsland(vector<vector<int>>& grid) {
         }
         return 0;
     }
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    int maxAreaOfIsland(vector<vector<int>>& grid)
+    {
+        int x[4]={0,0,1,-1};
+        int y[4]={1,-1,0,0};
+        int q=0;
+        int ans=0;
+        for(int i=0; i<grid.size(); i++)
+        {
+            for(int z=0; z<grid[0].size(); z++)
+            {
+                ans=0;
+                if(grid[i][z]==1)
+                {
+                    ans++;
+                    queue<pair<int,int>> v;
+                    v.push(make_pair(i,z));
+                    while(!v.empty())
+                    {
+                        pair<int,int> k;
+                        k=make_pair(v.front().first,v.front().second);
+                        grid[k.first][k.second]=0;
+                        v.pop();
+                        for(int c=0; c<4; c++)
+                        {
+                            int xx=x[c]+k.second;
+                            int yy=y[c]+k.first;
+                            if(xx<0||yy<0||xx>=grid[0].size()||yy>=grid.size()||grid[yy][xx]==0)
+                                continue;
+                            else
+                            {
+                                grid[yy][xx]=0;
+                                v.push(make_pair(yy,xx));
+                                ans++;
+                            }
+                        }
+                    }
+                    if(q<ans)
+                        q=ans;
+                }
+            }
+        }   
+        return q; 
+    }
+};
