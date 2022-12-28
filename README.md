@@ -12,13 +12,13 @@
 ### 멤버 
 
 
-<img src="https://user-images.githubusercontent.com/95333770/209754691-ba90ea62-65e4-433f-a9c0-67f3bd0fd927.jpg"  width="10%" height="10%"/>
+<img src="https://user-images.githubusercontent.com/95333770/209754691-ba90ea62-65e4-433f-a9c0-67f3bd0fd927.jpg"  width="7%" height="7%"/>
 
 **육군 일병 강민수**
 
 <https://github.com/Kongms002>
 
-<img src="https://user-images.githubusercontent.com/95333770/209754680-2955fb0c-b7d9-440e-970d-a5ecb9df455b.png" width="10%" height="10%"/>
+<img src="https://user-images.githubusercontent.com/95333770/209754680-2955fb0c-b7d9-440e-970d-a5ecb9df455b.png" width="7%" height="7%"/>
 
 **공군 일병 이원호**
 
