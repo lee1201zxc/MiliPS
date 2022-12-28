@@ -31,3 +31,30 @@ public:
     }
 
 };
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    int maxDepth(TreeNode* root)
+    {
+        int z=0;
+        queue<pair<TreeNode*,int>> q;
+        if(!root)
+            return 0;
+        q.push(make_pair(root,0));
+        while(!q.empty())
+        {
+            pair<TreeNode*,int> qq;
+            qq=q.front();
+            q.pop();
+            if(qq.first->left)
+                q.push(make_pair(qq.first->left,qq.second+1));
+            if(qq.first->right)
+                q.push(make_pair(qq.first->right,qq.second+1));
+            z=q.back().second+1;             
+        }
+        return z;
+    }
+};
