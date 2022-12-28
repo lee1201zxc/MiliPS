@@ -31,3 +31,11 @@ public:
         return false;
     }
 };
+
+
+// 찾은 재귀적 풀이
+bool hasPathSum(TreeNode *root, int targetSum) {
+        if (root == NULL) return false;
+        if (root->val == targetSum && root->left ==  NULL && root->right == NULL) return true;
+        return hasPathSum(root->left, sum-root->val) || hasPathSum(root->right, sum-root->val);
+    }
