@@ -79,3 +79,56 @@ public:
 };
 
 스택을 이용한 풀이
+
+
+
+
+어렵다..... 구현을 못함
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        if (root != nullptr) {
+            //visit root
+            traversedList.push_back(root->val);
+
+            //traverse left subtree
+            preorderTraversal(root->left);
+            
+            //traverse right subtree
+            preorderTraversal(root->right);
+        }
+        
+        return traversedList;
+    }
+    vector<int> traversedList;
+};
+// 전역 변수를 선언하는 풀이 
+
+
+
+
+
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        if (!root) return {};
+        vector<int> result;
+        stack<TreeNode *> treeStack;
+        treeStack.push(root);
+        while(!treeStack.empty()) {
+            TreeNode *temp = treeStack.top();
+            result.push_back(temp->val);
+            treeStack.pop();
+            if (temp->right) {
+                treeStack.push(temp->right);
+            }
+            if (temp->left) {
+                treeStack.push(temp->left);
+            }
+            
+        }
+          
+        return result;
+    }
+};
+// 스택을 이용한 
