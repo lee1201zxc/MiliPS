@@ -39,3 +39,24 @@ bool hasPathSum(TreeNode *root, int targetSum) {
         if (root->val == targetSum && root->left ==  NULL && root->right == NULL) return true;
         return hasPathSum(root->left, sum-root->val) || hasPathSum(root->right, sum-root->val);
     }
+
+
+### 이원호 풀이 ###
+
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum)
+    {
+        if(!root)
+            return false;
+        if(root->left&&root->right)
+            return hasPathSum(root->left,targetSum-root->val)||hasPathSum(root->right,targetSum-root->val);
+        else if(root->left)
+            return hasPathSum(root->left,targetSum-root->val);
+        else if(root->right)
+            return hasPathSum(root->right,targetSum-root->val);
+        else if(targetSum-root->val==0)
+            return true;
+        return false;
+    }
+};
