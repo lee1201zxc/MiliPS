@@ -22,3 +22,5 @@
 **공군 일병 이원호**
 
 <https://github.com/lee1201zxc>
+
+  https://lee1201zxc.tistory.com/entry/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EB%8A%A5%EC%82%AC-%ED%9B%84%EA%B8%B0
