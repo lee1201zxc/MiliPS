@@ -13,7 +13,7 @@
 
 <img src="https://user-images.githubusercontent.com/95333770/209754691-ba90ea62-65e4-433f-a9c0-67f3bd0fd927.jpg"  width="7%" height="7%"/>
 
-**육군 일병 강민수**
+**육군 상병 강민수**
 
 <https://github.com/Kongms002>
 
