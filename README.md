@@ -19,6 +19,6 @@
 
 <img src="https://user-images.githubusercontent.com/95333770/209754680-2955fb0c-b7d9-440e-970d-a5ecb9df455b.png" width="7%" height="7%"/>
 
-**공군 일병 이원호**
+**공군 상병 이원호**
 
 <https://github.com/lee1201zxc>
