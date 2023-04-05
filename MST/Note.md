@@ -1,3 +1,3 @@
-https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html
+## Kruskal 알고리즘
 
-https://gmlwjd9405.github.io/2018/08/31/algorithm-union-find.html
+## Prim 알고리즘
